@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+    <title>Credit loan Forecasting</title>
+    <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+.vertical-menu {
+  width: 830px;
+  height: 350px;
+  overflow-y: auto;
+}
+
+.vertical-menu a {
+  background-color: #eee;
+  color: black;
+  display: block;
+  padding: 12px;
+  text-decoration: none;
+}
+
+.vertical-menu a:hover {
+  background-color: #ccc;
+}
+
+.vertical-menu a.active {
+  background-color: #4CAF50;
+  color: white;
+}
+
+ </style>
+</head>
+<body>
+
+ <div class="login">
+	<h1>Predict default of loan</h1>
+  <div class="vertical-menu">
+
+   <!-- Form to enter new data for predictions  -->
+   <div>
+    {{ prediction_text }}
+     </div>
+
+    <form action="{{ url_for('predict')}}"method="POST">
+<input type="text" name="Gender" placeholder="Gender(Male or Female)" required="required" /><br>
+    	<input type="text" name="Married" placeholder="Married((Yes or No))" required="required" /><br>
+        <input type="text" name="Dependents" placeholder="Dependents(Number of dependents)" required="required" /><br>
+        <input type="text" name="Education" placeholder="Eduction(Graduate or Not graduate)" required="required" /><br>
+        <input type="text" name="Self_Employed" placeholder="Self_Employed(No or Yes)" required="required" /><br>
+        <input type="text" name="ApplicantIncome" placeholder="ApplicantIncome(Applicant income)" required="required" />
+        <input type="text" name="CoapplicantIncome" placeholder="CoapplicantIncome(Coapplicant income in decimal eg 102.0 )"required="required" />
+        <input type="text" name="LoanAmount" placeholder="Loan amount in thousands in decimal eg 200.0"required="required" />
+        <input type="text" name="Loan_Amount_Term" placeholder="Term of loan in Days in decimal eg 360.0"required="required" />
+        <input type="text" name="Credit_History" placeholder="credit history meets guidelines(1.0=Yes or 0.0=No) "required="required" />
+        <input type="text" name="Property_Area" placeholder="Property Area(Urban/ Semi Urban/ Rural )"required="required" />
+         <button type="submit" class="btn btn-primary btn-block btn-large">Predict</button>
+    </form>
+
+   </div>
+
+        </div>
+
+
+
+
+</body>
+</html>
